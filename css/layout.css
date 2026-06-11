@@ -43,12 +43,12 @@ nav > .main_menu > li > ul {
 
 header .gnb_bg {
     position: absolute;
-    left: 50%;
+    left: 0;
     bottom: 1px;
     width: 100vw;
     height: 0;
     background-color: #fff;
-    transform: translate(-50%, 100%);
+    transform: translateY(100%);
     transition: all 0.2s;
 }
 
