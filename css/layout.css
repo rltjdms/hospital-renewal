@@ -1,102 +1,119 @@
-.main_slidewrap  {
-    width:100vw;   /* 화면 전체 가로 */
+/* main > section1(main_1)*/
+
+.main_1 {
+    background-color: var(--blue03);
+}
+
+.main_1 .wrap {
+    position: relative;
+}
+
+.main_1 .main_slidewrap  {
+    /* width:100vw;   화면 전체 가로 */
     height:100vh;  /* 화면 전체 높이 */
     overflow:hidden;
 }
 
-.main_slidewrap > .slides {
+.main_1 .main_slidewrap > .slides {
     display:flex;
     height:100%;
     transition:0.5s;
 }
 
 
-.main_slidewrap > .slides > div {
+.main_1 .main_slidewrap > .slides > div {
     flex:0 0 100%;
     background-repeat:no-repeat;
-    background-size:50%;
-    background-position:center right;
+    background-size:35%;
+    background-position:center right 14%;
+    display: flex;
+    align-items: center;
 }
 
-.slide_1 {
+.main_1 .slide_1 {
     background-image:url("../img/visual1.png");
 }
 
-.slide_2 {
+.main_1 .text-area {
+    width: 70%;
+}
+
+.main_1 .slide_2 {
     background-image:url("../img/visual2.png");
 }
 
-.slide_3 {
+.main_1 .slide_3 {
     background-image:url("../img/visual3.png");
 }
 
+.main_1 .text-area .title {
+    font-size: 4.0625rem;
+}
 
+.main_1 .text-area .title strong {
+    font-size: inherit;
+    font-weight: var(--fw-700);
+    font-family: inherit;
+    text-transform: inherit;
+    color: var(--black);
+}
 
-.slide_control {
+.main_1 .slide_control {
     position:absolute;
-    left:30px;
+    left: 0;
     bottom:80px;
-
     display:flex;
     align-items:center;
     gap:20px;
-
     z-index:10;
-    color:#fff;
+    color:var(--black);
 }
 
-
-.page {
+.main_1 .page {
     display:flex;
     gap:5px;
     font-size:18px;
 }
 
-
-.bar {
+.main_1 .bar {
     width:200px;
     height:2px;
     background:#ddd;
 }
 
-
-.bar span {
+.main_1 .bar span {
     display:block;
     width:33%;
     height:100%;
-    background:#fff;
-
+    background:var(--black);
     transition:.4s;
 }
 
-
-
-.play,
-.stop {
+.main_1 .play,
+.main_1 .stop {
     background:none;
     border:0;
-    color:#fff;
+    color:var(--black);
 }
 
-
-.stop {
+.main_1 .stop {
     display:none;
 }
 
-
-.prev,
-.next {
+.main_1 .prev,
+.main_1 .next {
     background:none;
     border:0;
-    color:#fff;
+    color:var(--black);
     font-size:25px;
 }
 
-
-.play {
+.main_1 .play {
     display:block;
 }
 
-.stop {
+.main_1 .stop {
     display:none;
 }
+
+/* main > section1(main_1)*/
