@@ -19,15 +19,12 @@ header .logo_h img {
     width: 100%;
 }
 
-.head_inner {
-    padding: 0 80px;
-}
-
-.nav_list {
+header .nav_list {
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
 }
 
 nav {
@@ -63,7 +60,7 @@ nav > .main_menu > li::before {
 
 nav > .main_menu > li:hover::before {
     opacity: 1;
-    height: calc(var(--hdH) + 17em);
+    height: calc(121px + 17em);
 
 }
 
@@ -73,7 +70,7 @@ nav > .main_menu > li > a {
     padding: 0 4.5rem 0;
     line-height: var(--hdH);
     z-index: 21;
-    transition: padding 0.5s;
+    transition: none;
 }
 
 .head_inner nav > .main_menu > li > ul {
@@ -92,9 +89,11 @@ nav > .main_menu > li > a {
     z-index: 22;
 }
 
-.head_inner.on nav > .main_menu > li > a {
+
+/* .head_inner.on nav > .main_menu > li > a {
     padding: 0 5.5rem 0;
-}
+    transition: 1s;
+} */
 
 .head_inner.on nav > .main_menu > li > ul {
     opacity: 1;
