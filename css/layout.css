@@ -164,3 +164,126 @@
  .main_1 .schedule_banner .list li:hover a > .txt {
     color: var(--white);
 }
+
+/* main > section2(main_2)*/
+.main_2 > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main_2 .main_text_box {
+    position: relative;
+    padding: 48px 42px 70px;
+    background-color: var(--blue02);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.main_2 .main_text_box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.main_2 .main_text_box::after {
+    content: "";
+    position: absolute;
+    right: -81px;
+    bottom: -75px;
+    width: 300px;
+    height: 300px;
+    background-image: url("../img/service1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-position: right bottom; */
+    /* z-index: -1; */
+    transform: scaleX(-1);
+}
+
+.main_2 .main_text_box strong {
+    font-weight: var(--fw-700);
+}
+
+
+.main_2 ul {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 65%;
+}
+
+.main_2 ul li {
+    padding: 30px 20px 20px;
+    border: 1px solid var(--blue02);
+    border-radius: 20px;
+    transition: transform 0.5s ease,
+                background-color 0.5s ease,
+                color 0.5s ease;
+}
+
+.main_2 ul li:hover {
+    transform: translateY(-50px);
+    background: var(--blue03);
+}
+
+.main_2 .icon_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.main_2 .icon_box .circle_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    border-radius: 50%;
+    background: var(--blue03);
+    transition: var(--transition);
+}
+
+.main_2 .icon_box h4 {
+    position: relative;
+    margin: 20px 0 32px;
+    font-size: 1.125rem;
+    font-weight: var(--fw-600);
+}
+
+.main_2 .icon_box h4::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;  
+    transform: translateX(-50%);
+    width: 3.2rem;
+    height: 2px;
+    border-radius: 20px;
+    background-color: var(--blue05);
+}
+
+.main_2 .icon_box .small-deco {
+    margin-top: 20px;
+    font-size: 0.875rem;
+    font-weight: var(--fw-700);
+    color: var(--blue05);
+}
+
+.main_2 .icon_box .arrow_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+    width: 42px;
+    height: 42px;
+    margin-top: 24px;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 1px solid var(--blue05);
+    color: var(--blue05);
+}

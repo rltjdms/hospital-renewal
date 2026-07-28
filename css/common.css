@@ -33,6 +33,7 @@
     --blue02: #dae3f3;
     --blue03: #f0f4fa;
     --blue04: #83d2de;
+	--blue05: #3877DB;
     --white: #fff;
     --yellow : #F3B900;
     --alertColor: #0A2961;
@@ -481,6 +482,12 @@ a {
 
 .mb {
     display: none;
+}
+
+.small-text {
+    font-size: 1rem;
+    color: var(--gray01);
+    line-height: 1.3;
 }
 
 
