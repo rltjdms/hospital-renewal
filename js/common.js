@@ -1,3 +1,5 @@
+// 헤더 및 메뉴
+
 const header = document.querySelector('.head_inner');
 const nav = document.querySelector('nav');
 const nav_back = document.querySelector('.gnb_bg');
@@ -25,7 +27,7 @@ menuItems.forEach((item) => {
 
 });
 
-
+// Main1 
 const slides = document.querySelector('.main_1 .slides');
 const slide = document.querySelectorAll('.main_1 .slides > div');
 
@@ -141,5 +143,115 @@ next.addEventListener("click",()=>{
 prev.addEventListener("click",()=>{
 
     prevSlide();
+
+});
+
+
+//Main3
+
+let doctors = [];
+let doctorCurrent = 0;
+
+const doctorImg = document.getElementById("doctorImg");
+const doctorPosition = document.getElementById("doctorPosition");
+const doctorName = document.getElementById("doctorName");
+const doctorCareer = document.getElementById("doctorCareer");
+
+const doctorNext = document.querySelector(".doctor_slides .next");
+const doctorPrev = document.querySelector(".doctor_slides .prev");
+
+const slideCurrent = document.getElementById("slideCurrent");
+const slideTotal = document.getElementById("slideTotal");
+
+
+// JSON 데이터 가져오기
+fetch("./data/doctor.json")
+    .then(res => res.json())
+    .then(data => {
+
+        doctors = data;
+
+        // 총 개수 표시
+        slideTotal.textContent =
+            String(doctors.length).padStart(2, "0");
+
+
+        renderDoctor(doctorCurrent);
+
+    });
+
+
+// 화면 출력 함수
+function renderDoctor(index){
+
+    const doctor = doctors[index];
+
+
+    // 이미지
+    doctorImg.src = doctor.img;
+    doctorImg.alt = doctor.name;
+
+
+    // 이름 / 직책
+    doctorPosition.textContent = doctor.position;
+    doctorName.textContent = doctor.name;
+
+    //경력
+    doctorCareer.innerHTML = "";
+
+    doctor.career.forEach(item => {
+
+        const p = document.createElement("p");
+
+        p.textContent = item;
+
+        doctorCareer.appendChild(p);
+
+    });
+
+
+    // 숫자 변경
+    slideCurrent.textContent =
+        String(index + 1).padStart(2, "0");
+
+}
+
+
+// 다음 버튼
+doctorNext.addEventListener("click", () => {
+
+
+    doctorCurrent++;
+
+
+    if(doctorCurrent >= doctors.length){
+
+        doctorCurrent = 0;
+
+    }
+
+
+    renderDoctor(doctorCurrent);
+
+
+});
+
+
+// 이전 버튼
+doctorPrev.addEventListener("click", () => {
+
+
+    doctorCurrent--;
+
+
+    if(doctorCurrent < 0){
+
+        doctorCurrent = doctors.length - 1;
+
+    }
+
+
+    renderDoctor(doctorCurrent);
+
 
 });
