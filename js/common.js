@@ -151,6 +151,8 @@ prev.addEventListener("click",()=>{
 
 let doctors = [];
 let doctorCurrent = 0;
+let doctorTimer; //카드 자동재생
+let doctorRestartTimer; //화살표 클릭시 잠시 멈추고 자동재생
 
 
 // 요소 선택
@@ -251,11 +253,17 @@ function createDoctorCards(){
             const p =
                 document.createElement("p");
 
+           // "현)"이 들어간 문장이라면 current 클래스 추가
+            if (item.includes("현)")) {
+                p.classList.add("current");
+            }
+
             p.textContent = item;
 
             career.appendChild(p);
 
         });
+
 
 
         // 완성된 카드 추가
@@ -264,6 +272,8 @@ function createDoctorCards(){
     });
 
 }
+
+
 
 // 슬라이드 이동
 
@@ -296,7 +306,7 @@ function moveDoctor(){
 
 }
 
-// 다음 버
+// 다음 버튼
 
 doctorNext.addEventListener("click", () => {
 
@@ -314,7 +324,7 @@ doctorNext.addEventListener("click", () => {
 
 });
 
-// 이전 버
+// 이전 버튼
 
 doctorPrev.addEventListener("click", () => {
 
@@ -330,5 +340,70 @@ doctorPrev.addEventListener("click", () => {
 
 
     moveDoctor();
+    restartDoctorSlide();
 
 });
+
+// 의료진 자동 슬라이드
+function startDoctorSlide() {
+
+    doctorTimer = setInterval(() => {
+
+        doctorCurrent++;
+
+        if (doctorCurrent >= doctors.length) {
+            doctorCurrent = 0;
+        }
+
+        moveDoctor();
+        restartDoctorSlide();
+
+    }, 3500);
+
+}
+
+fetch("./data/doctor.json")
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        doctors = data;
+
+        slideTotal.textContent =
+            String(doctors.length).padStart(2, "0");
+
+        createDoctorCards();
+
+        moveDoctor();
+
+        // 자동 슬라이드 시작
+        startDoctorSlide();
+
+    });
+
+
+
+// 자동재생 멈추기
+function stopDoctorSlide() {
+
+    clearInterval(doctorTimer);
+
+}
+// 화살표 클릭 후 잠깐 쉬기
+function restartDoctorSlide() {
+
+    // 기존 자동재생 정지
+    stopDoctorSlide();
+
+    // 기존 재시작 예약도 취소
+    clearTimeout(doctorRestartTimer);
+
+    // 3초 후 자동재생
+    doctorRestartTimer = setTimeout(() => {
+
+        startDoctorSlide();
+
+    }, 3000);
+
+}

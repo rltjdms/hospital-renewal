@@ -297,9 +297,14 @@
     background-color: var(--blue05);
 }
 
+
 /* main > section3(main_3)*/
 .main_3 {
     background-color: var(--blue03);
+}
+
+.main_3 .doctor_view {
+    overflow: hidden;
 }
 
 .main_3 .doctor_box {
@@ -328,17 +333,28 @@
 }
 
 
-.main_3 .doctor_slides .doctor_img img {
+.main_3 .doctor_slides .doctor_img {
     width: 350px;
     height: 350px;
+    flex-shrink: 0;
+}
+
+.main_3 .doctor_slides .doctor_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .main_3 .doctor_slides .doctor_txt {
-    padding: 48px 20px 0;
+    padding: 34px 20px;
+    height: 350px;
+    box-sizing: border-box;
+    word-break: keep-all;
+    flex: 1;
 }
 
 .main_3 .doctor_slides .doctor_txt .name {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .main_3 .doctor_slides .doctor_txt .name span {
@@ -351,10 +367,14 @@
     padding-left: 9px;
 }
 
+.main_3 .doctor_slides .doctor_txt .career .current {
+    color: var(--blue01);
+}
 
 
 
-.slide_num{
+
+.main_3 .doctor_slides .slide_num {
     position:absolute;
     left:0;
     bottom:0;
@@ -362,21 +382,49 @@
     align-items:center;
     gap:8px;
     padding:4px 12px;
-    background:rgba(26,65,133,.88);
+    background:var(--blue05);
     backdrop-filter:blur(10px);
     box-shadow:0 10px 30px rgba(0,0,0,.08);
     /* border-radius: 50px; */
 
 }
 
-.slide_num span{
+.main_3 .doctor_slides .slide_num span{
     font-size:16px;
     font-weight:700;
     color: var(--white);
 }
 
-.slide_num em{
+.main_3 .doctor_slides .slide_num em{
     font-size:11px;
     font-style:normal;
     color: var(--gray02);
+}
+
+.main_3 .doctor_slides .slide_btn {
+    position: absolute;
+    top: 50%;
+    left: -6.5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.main_3 .doctor_slides .slide_btn button {
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    pointer-events: auto;
+    
+}
+
+.main_3 .doctor_slides .slide_btn button i {
+    color: var(--blue05);
+}
+
+.main_3 .doctor_slides .slide_btn button i:hover{
+    color: var(--blue04);
 }
