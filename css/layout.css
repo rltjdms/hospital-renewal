@@ -302,40 +302,56 @@
     background-color: var(--blue03);
 }
 
-.main_3 .doctor_slides {
+.main_3 .doctor_box {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.main_3 .doctor_slides .doctor_img {
+
+.main_3 .doctor_box .doctor_slides {
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
+    width: 60%;
 }
+
+/* 카드가 들어가는 영역 */
+.main_3 .doctor_slides .doctor_track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease;
+}
+
+.main_3 .doctor_slides .doctor_card {
+    display: flex;
+    flex: 0 0 90%;
+    background-color: var(--white);
+}
+
 
 .main_3 .doctor_slides .doctor_img img {
     width: 350px;
     height: 350px;
 }
 
-.main_3 .doctor_slides .doctor_img .doctor_txt {
-    padding: 20px 20px;
+.main_3 .doctor_slides .doctor_txt {
+    padding: 48px 20px 0;
 }
 
-.main_3 .doctor_slides .doctor_img .doctor_txt .name span {
+.main_3 .doctor_slides .doctor_txt .name {
+    margin-bottom: 32px;
+}
+
+.main_3 .doctor_slides .doctor_txt .name span {
     color: var(--blue01);
 }
 
-.main_3 .doctor_slides .doctor_img .doctor_txt strong {
+.main_3 .doctor_slides .doctor_txt strong {
     font-size: 1.875rem;
     font-weight: var(--fw-600);
     padding-left: 9px;
 }
+
+
 
 
 .slide_num{

@@ -11,7 +11,27 @@
         ]
     },
     {
-        "img": "./img/doctor_02.jpg",
+        "img": "./img/doctor_02.png",
+        "position": "원장",
+        "name": "홍길동",
+        "career": [
+            "정신건강의학과 전문의",
+            "서울대학교 의과대학 졸업",
+            "대한신경정신의학회 정회원"
+        ]
+    },
+    {
+        "img": "./img/doctor_03.png",
+        "position": "원장",
+        "name": "홍길동",
+        "career": [
+            "정신건강의학과 전문의",
+            "서울대학교 의과대학 졸업",
+            "대한신경정신의학회 정회원"
+        ]
+    },
+    {
+        "img": "./img/doctor_04.png",
         "position": "원장",
         "name": "홍길동",
         "career": [

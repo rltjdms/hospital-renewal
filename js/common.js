@@ -152,74 +152,153 @@ prev.addEventListener("click",()=>{
 let doctors = [];
 let doctorCurrent = 0;
 
-const doctorImg = document.getElementById("doctorImg");
-const doctorPosition = document.getElementById("doctorPosition");
-const doctorName = document.getElementById("doctorName");
-const doctorCareer = document.getElementById("doctorCareer");
 
-const doctorNext = document.querySelector(".doctor_slides .next");
-const doctorPrev = document.querySelector(".doctor_slides .prev");
+// 요소 선택
+const doctorTrack = document.getElementById("doctorTrack");
 
-const slideCurrent = document.getElementById("slideCurrent");
-const slideTotal = document.getElementById("slideTotal");
+const doctorNext =
+    document.querySelector(".doctor_slides .next");
+
+const doctorPrev =
+    document.querySelector(".doctor_slides .prev");
+
+const slideCurrent =
+    document.getElementById("slideCurrent");
+
+const slideTotal =
+    document.getElementById("slideTotal");
 
 
 // JSON 데이터 가져오기
 fetch("./data/doctor.json")
+
     .then(res => res.json())
+
     .then(data => {
 
         doctors = data;
 
-        // 총 개수 표시
+
+        // 총 의료진 수
         slideTotal.textContent =
             String(doctors.length).padStart(2, "0");
 
 
-        renderDoctor(doctorCurrent);
+        // 의료진 카드 생성
+        createDoctorCards();
+
+
+        // 첫 번째 카드 표시
+        moveDoctor();
 
     });
 
+function createDoctorCards(){
 
-// 화면 출력 함수
-function renderDoctor(index){
-
-    const doctor = doctors[index];
+    doctorTrack.innerHTML = "";
 
 
-    // 이미지
-    doctorImg.src = doctor.img;
-    doctorImg.alt = doctor.name;
+    doctors.forEach((doctor) => {
+
+        // 카드 생성
+        const card =
+            document.createElement("div");
 
 
-    // 이름 / 직책
-    doctorPosition.textContent = doctor.position;
-    doctorName.textContent = doctor.name;
+        card.classList.add("doctor_card");
 
-    //경력
-    doctorCareer.innerHTML = "";
 
-    doctor.career.forEach(item => {
+        // 카드 기본 HTML
+        card.innerHTML = `
 
-        const p = document.createElement("p");
+            <div class="doctor_img">
+                <img
+                    src="${doctor.img}"
+                    alt="${doctor.name}"
+                >
+            </div>
 
-        p.textContent = item;
+            <div class="doctor_txt">
 
-        doctorCareer.appendChild(p);
+                <div class="name">
+
+                    <span>
+                        ${doctor.position}
+                    </span>
+
+                    <strong>
+                        ${doctor.name}
+                    </strong>
+
+                </div>
+
+
+                <div class="career"></div>
+
+            </div>
+
+        `;
+
+
+        // 경력 영역
+        const career =
+            card.querySelector(".career");
+
+
+        // 경력을 하나씩 추가
+        doctor.career.forEach(item => {
+
+            const p =
+                document.createElement("p");
+
+            p.textContent = item;
+
+            career.appendChild(p);
+
+        });
+
+
+        // 완성된 카드 추가
+        doctorTrack.appendChild(card);
 
     });
-
-
-    // 숫자 변경
-    slideCurrent.textContent =
-        String(index + 1).padStart(2, "0");
 
 }
 
+// 슬라이드 이동
 
-// 다음 버튼
+function moveDoctor(){
+
+    const card =
+        doctorTrack.querySelector(".doctor_card");
+
+
+    if(!card) return;
+
+
+    // 카드 하나의 너비
+    const cardWidth =
+        card.offsetWidth;
+
+
+    // 카드 사이 간격
+    const gap = 30;
+
+
+    // 카드 이동
+    doctorTrack.style.transform =
+        `translateX(-${doctorCurrent * (cardWidth + gap)}px)`;
+
+
+    // 현재 번호
+    slideCurrent.textContent =
+        String(doctorCurrent + 1).padStart(2, "0");
+
+}
+
+// 다음 버
+
 doctorNext.addEventListener("click", () => {
-
 
     doctorCurrent++;
 
@@ -231,27 +310,25 @@ doctorNext.addEventListener("click", () => {
     }
 
 
-    renderDoctor(doctorCurrent);
-
+    moveDoctor();
 
 });
 
+// 이전 버
 
-// 이전 버튼
 doctorPrev.addEventListener("click", () => {
-
 
     doctorCurrent--;
 
 
     if(doctorCurrent < 0){
 
-        doctorCurrent = doctors.length - 1;
+        doctorCurrent =
+            doctors.length - 1;
 
     }
 
 
-    renderDoctor(doctorCurrent);
-
+    moveDoctor();
 
 });
