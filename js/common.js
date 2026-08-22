@@ -407,3 +407,92 @@ function restartDoctorSlide() {
     }, 3000);
 
 }
+
+
+
+// Main4
+
+const section = document.querySelector(".main_4");
+const text = section.querySelector(".main_text_box");
+const items = section.querySelectorAll(".treatment_item");
+
+window.addEventListener("scroll", () => {
+
+    const rect = section.getBoundingClientRect();
+
+    // main_4가 화면 상단에 도달한 후 스크롤 거리
+    const scrollY = Math.max(0, -rect.top);
+
+    const maxScroll = window.innerHeight * 3;
+
+    const progress = Math.min(
+        scrollY / maxScroll,
+        1
+    );
+
+
+    /* =====================
+       왼쪽 텍스트
+    ===================== */
+
+    if (progress > 0.05) {
+        text.classList.add("show");
+    } else {
+        text.classList.remove("show");
+    }
+
+
+    /* =====================
+       카드 애니메이션
+    ===================== */
+
+    items.forEach((item, index) => {
+
+        // 카드별 시작 위치
+        const startY = [
+            700,
+            1000,
+            1300,
+            1600,
+            1900
+        ][index];
+
+
+        // 카드별 최종 위치
+        const endY = [
+            0,      // 1번
+            100,    // 2번 아래
+            0,      // 3번
+            100,    // 4번 아래
+            0       // 5번
+        ][index];
+
+
+        // 카드마다 등장 타이밍
+        const delay = index * 0.12;
+
+
+        // 각 카드 진행도
+        const itemProgress = Math.min(
+            Math.max(
+                (progress - delay) / 0.35,
+                0
+            ),
+            1
+        );
+
+
+        // 시작 위치 → 최종 위치
+        const y =
+            startY + (endY - startY) * itemProgress;
+
+
+        item.style.transform =
+            `translateY(${y}px)`;
+
+        item.style.opacity =
+            itemProgress;
+
+    });
+
+});

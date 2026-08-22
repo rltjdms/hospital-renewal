@@ -476,6 +476,14 @@ a {
     margin-top: 30px;
 }
 
+.small-deco {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: var(--fw-700);
+    color: var(--blue04);
+    font-family: 'GmarketSansMedium';
+}
+
 .pc {
     display: block;
 }
@@ -489,6 +497,66 @@ a {
     color: var(--gray01);
     line-height: 1.3;
 }
+
+.title strong {
+    font-size: inherit;
+    font-weight: var(--fw-700);
+    font-family: inherit;
+    text-transform: inherit;
+    color: var(--black);
+}
+
+.view-button {
+	font-size: inherit;
+    color: var(--white);
+    transition: 0.5s;
+	text-align: right;
+}
+
+.view-button a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    font-size: inherit;
+    padding: 43px 0 43px 43px;
+    transition: .5s;
+}
+
+.view-button span {
+	color: var(--white);
+}
+
+.view-button a em {
+	margin-left: 3px;
+	color: var(--blue04);
+}
+
+.view-button a:after {
+    content: '';
+	position: absolute;
+    top: 50%;
+    left: 0;
+    width: 85px;
+    height: 85px;
+    background: var(--blue04);
+    border-radius: 50%;
+    z-index: -1;
+    transform: translateY(-50%);
+    transition: 0.5s;
+}
+
+.view-button a:hover::after {
+    left: 67%;
+}
+
+.view-button a:hover span {
+	color: var(--blue04);
+}
+
+.view-button a:hover em {
+	color: var(--white);
+}
+
 
 
 @media all and (max-width: 640px){

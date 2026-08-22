@@ -50,14 +50,6 @@
     font-size: 4.0625rem;
 }
 
-.main_1 .text-area .title strong {
-    font-size: inherit;
-    font-weight: var(--fw-700);
-    font-family: inherit;
-    text-transform: inherit;
-    color: var(--black);
-}
-
 .main_1 .slide_control {
     position:absolute;
     left: 0;
@@ -200,9 +192,6 @@
     transform: scaleX(-1);
 }
 
-.main_2 .main_text_box strong {
-    font-weight: var(--fw-700);
-}
 
 
 .main_2 ul {
@@ -313,10 +302,15 @@
     align-items: center;
 }
 
+.main_3 .doctor_right {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
 
 .main_3 .doctor_box .doctor_slides {
     position: relative;
-    width: 60%;
 }
 
 /* 카드가 들어가는 영역 */
@@ -335,7 +329,7 @@
 
 .main_3 .doctor_slides .doctor_img {
     width: 350px;
-    height: 350px;
+    height: 400px;
     flex-shrink: 0;
 }
 
@@ -370,9 +364,6 @@
 .main_3 .doctor_slides .doctor_txt .career .current {
     color: var(--blue01);
 }
-
-
-
 
 .main_3 .doctor_slides .slide_num {
     position:absolute;
@@ -427,4 +418,154 @@
 
 .main_3 .doctor_slides .slide_btn button i:hover{
     color: var(--blue04);
+}
+
+/* Main4 */
+.main_4 {
+    position: relative;
+    height: 350vh;
+    background: #0e2f68;
+}
+
+.main_4 .treatment_inner {
+    position: sticky;
+    top: 0;
+    height: 130vh;
+}
+
+.main_4 .wrap {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.main_4 .main_text_box {
+    width: 40%;
+    padding-left: 5%;
+
+    opacity: 0;
+    transform: translateY(100px);
+
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+
+.main_4 .main_text_box .deco {
+    color: var(--blue04);
+}
+
+.main_4 .main_text_box > *  {
+    color: var(--white);
+}
+
+.main_4 .main_text_box strong {
+    color: var(--white);
+}
+
+.main_4 .main_text_box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.main_4 .treatment_list {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.main_4 .treatment_track {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 340px);
+    grid-auto-rows: 340px;
+
+    gap: 90px;
+
+    align-content: center;
+}
+
+
+.main_4 .treatment_item {
+    width: 340px;
+    height: 340px;
+    padding: 30px 25px;
+    opacity: 0;
+    /* 처음에는 아래쪽에 있음 */
+    transform: translateY(500px);
+
+    transition:
+        transform 1s cubic-bezier(.22, 1, .36, 1),
+        opacity .8s ease;
+
+    border: 1px solid var(--white);
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: var(--white);
+}
+
+
+/* 스크롤하면 또렷해지고 위로 올라옴 */
+
+.main_4 .treatment_item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main_4 .treatment_item:nth-child(odd) {
+    transform: translateY(500px);
+}
+
+.main_4 .treatment_item:nth-child(even) {
+    transform: translateY(600px);
+}
+
+/* 나타날 때 */
+.main_4 .treatment_item.show {
+    opacity: 1;
+}
+
+
+/* 홀수 카드 최종 위치 */
+.main_4 .treatment_item:nth-child(odd).show {
+    transform: translateY(0);
+}
+
+
+/* 짝수 카드 최종 위치 */
+.main_4 .treatment_item:nth-child(even).show {
+    transform: translateY(100px);
+}
+
+.main_4 .program-text {
+    margin-bottom: 20px;
+}
+
+.main_4 .program-text h4 {
+    font-size: 1.25rem;
+    font-weight: var(--fw-600);
+    color: var(--black);
+    margin-top: 20px;
+}
+
+.main_4 .program-text p {
+    font-size: 1.125rem;
+    color: var(--gray01);
+    line-height: 1.3;
+    margin-top: 12px;
+}
+
+
+/* 이미지 */
+
+.main_4 .treatment_item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 20px;
 }
