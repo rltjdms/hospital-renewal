@@ -496,3 +496,42 @@ window.addEventListener("scroll", () => {
     });
 
 });
+
+
+// Main_5 Map
+  window.navermap_authFailure = function () {
+        console.log('네이버 지도 API 인증 실패');
+    };
+
+    const lat = 35.13231772;
+    const lng = 128.9959045;
+
+    const map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(lat, lng),
+        zoom: 17
+        
+    });
+
+    const marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(lat, lng),
+        map: map,
+
+        icon: {
+            url: 'img/img_map_point.png',
+            alt: '대남병원 위치',
+            size: new naver.maps.Size(120, 60),
+            scaledSize: new naver.maps.Size(120, 50)
+            // anchor: new naver.maps.Point(40, 80)
+        }
+    });
+
+
+    // const infoWindow = new naver.maps.InfoWindow({
+    //     content: `
+    //          <div class="map_info">
+    //             <img src="img/img_map_point.png" alt="대남병원">
+    //         </div>
+    //     `
+    // });
+
+    // infoWindow.open(map, marker);
