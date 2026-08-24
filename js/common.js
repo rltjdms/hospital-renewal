@@ -413,8 +413,8 @@ function restartDoctorSlide() {
 // Main4
 
 const section = document.querySelector(".main_4");
-const text = section.querySelector(".main_text_box");
-const items = section.querySelectorAll(".treatment_item");
+const text = section.querySelector(".main_4 .main_text_box");
+const items = section.querySelectorAll(".main_4 .treatment_item");
 
 window.addEventListener("scroll", () => {
 
@@ -460,11 +460,11 @@ window.addEventListener("scroll", () => {
 
         // 카드별 최종 위치
         const endY = [
-            0,      // 1번
-            100,    // 2번 아래
-            0,      // 3번
-            100,    // 4번 아래
-            0       // 5번
+            200,      // 1번
+            300,    // 2번 아래
+            200,      // 3번
+            300,    // 4번 아래
+            200       // 5번
         ][index];
 
 

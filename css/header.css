@@ -60,7 +60,7 @@ nav > .main_menu > li::before {
 
 nav > .main_menu > li:hover::before {
     opacity: 1;
-    height: calc(121px + 17em);
+    height: calc(122px + 17em);
 
 }
 
