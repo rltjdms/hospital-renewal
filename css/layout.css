@@ -1,4 +1,4 @@
-/* main > section1(main_1)*/
+/* main > section1(main_1) 메인슬라이드*/
 
 .main_1 {
     background-color: var(--blue03);
@@ -157,7 +157,7 @@
     color: var(--white);
 }
 
-/* main > section2(main_2)*/
+/* main > section2(main_2) SERVICE*/
 .main_2 > div {
     display: flex;
     align-items: center;
@@ -287,7 +287,7 @@
 }
 
 
-/* main > section3(main_3)*/
+/* main > section3(main_3) DOCTOR*/
 .main_3 {
     background-color: var(--blue03);
 }
@@ -421,17 +421,17 @@
     color: var(--blue04);
 }
 
-/* Main4 */
+/* Main4 PROGRAM*/
 .main_4 {
     position: relative;
-    height: 350vh;
+    height: 300vh;
     background: #0e2f68;
 }
 
 .main_4 .treatment_inner {
     position: sticky;
     top: 0;
-    height: 180vh;
+    height: 150vh;
 }
 
 .main_4 .wrap {
@@ -498,47 +498,10 @@
     /* 처음에는 아래쪽에 있음 */
     transform: translateY(500px);
 
-    transition:
-        transform 1s cubic-bezier(.22, 1, .36, 1),
-        opacity .8s ease;
-
     border: 1px solid var(--white);
     overflow: hidden;
     border-radius: 30px;
     background-color: var(--white);
-}
-
-
-/* 스크롤하면 또렷해지고 위로 올라옴 */
-
-.main_4 .treatment_item.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.main_4 .treatment_item:nth-child(odd) {
-    transform: translateY(500px);
-}
-
-.main_4 .treatment_item:nth-child(even) {
-    transform: translateY(600px);
-}
-
-/* 나타날 때 */
-.main_4 .treatment_item.show {
-    opacity: 1;
-}
-
-
-/* 홀수 카드 최종 위치 */
-.main_4 .treatment_item:nth-child(odd).show {
-    transform: translateY(0);
-}
-
-
-/* 짝수 카드 최종 위치 */
-.main_4 .treatment_item:nth-child(even).show {
-    transform: translateY(100px);
 }
 
 .main_4 .program-text {
@@ -732,151 +695,358 @@
     Main_6
 ========================= */
 
-.main_6 .map_box {
-    display: flex;
-    align-items: flex-start;
-    gap: 100px;
+/* ========================================
+   LOCATION
+======================================== */
+
+.main_location .map_box {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: stretch;
 }
 
 
-/* =========================
-   진료시간
-========================= */
+/* LEFT
+---------------------------------------- */
 
-.main_6 .location_time {
+.main_location .map_info_left {
     display: flex;
-    align-items: start;
+    flex-direction: column;
+}
+
+
+/* 제목 */
+
+.main_location .main_text_box .deco {
+    display: block;
+    margin-bottom: 35px;
+    color: #2468c9;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main_location .main_text_box .title {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.3;
+    font-weight: 400;
+    color: #222;
+}
+
+.main_location .main_text_box .title strong {
+    color: #2468c9;
+    font-weight: 700;
+}
+
+.main_location .main_text_box .text {
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+}
+
+
+/* 대표번호 */
+
+.main_location .hos_num {
+    padding: 32px 0;
     margin-top: 32px;
-    padding: 20px 0;
-    border-top: 1px solid var(--black);
-    /* border-bottom: 1px solid var(--lineColor1); */
-    gap: 20px;
+    border-top: 1px solid #e3e7ed;
+    border-bottom: 1px solid #e3e7ed;
 }
 
-.main_6 .hos_num {
-    margin-top: 50px;
-    font-size: 1.25rem;
-    color: var(--gray01);
+.main_location .hos_num p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
 }
 
-.main_6 .hos_num > strong {
-    color: var(--blue05);
-    font-size: 2rem;
-    font-weight: var(--fw-700);
+.main_location .hos_num strong {
+    color: #2468c9;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-.main_6 .use-deco {
-    font-size: 1.25rem;
-    font-weight: var(--fw-700);
-    color: var(--blue05);
+
+/* 진료시간 */
+
+.main_location .location_time {
+    margin-top: 32px;
 }
 
-.main_6 .time_row {
+.main_location .location_time .use-deco {
+    margin-bottom: 18px;
+    color: #2468c9;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* RIGHT
+---------------------------------------- */
+
+.main_location .location_map {
+    padding: 35px;
+    border: 1px solid #e3e7ed;
+    border-radius: 20px;
+}
+
+
+/* 주소 */
+
+.main_location .location_icon {
     display: flex;
-    align-items: start;
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8ebef;
 }
 
-.main_6 .time_row .time_title {
-    width: 100px;
-    flex-shrink: 0;
-
-    font-weight: var(--fw-500);
-    color: var(--black02);
+.main_location .location_icon i {
+    color: #2468c9;
+    font-size: 22px;
 }
 
-.main_6 .time_row > *, .main_6 .detail-text > * {
-    color: var(--black02);
+.main_location .location_icon h3 {
+    margin: 0;
+    font-size: 20px;
 }
 
 
-/* =========================
-   오른쪽 지도
-========================= */
-.main_6 .use_info_right .time_title_2 {
-    width: 180px;
-    flex-shrink: 0;
-    font-weight: var(--fw-500);
-    color: var(--black02);
-}
-
-.main_6 .location_map {
-   flex: 1;
-   /* width: 55%;
-    flex-shrink: 0; */
-}
-
-.main_6 .map_title {
+/* 자가운전 */
+.main_location .use_info_title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
-
-.main_6 .map_title .location_icon {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--blue05);
-    font-size: 1.25rem;
-}
-.main_6 .map_title .location_icon > * {
-    color: var(--blue05);
-}
-
-.main_6 .map_title h3 {
-    margin: 0;
-
+.main_location .use_info_title i {
+    color: #2468c9;
     font-size: 20px;
-    font-weight: var(--fw-700);
-    letter-spacing: -0.5px;
 }
 
+.main_location .use_info_title .use-deco {
+    margin: 0;
+    color: #2468c9;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+/* 경로 */
+
+.main_location .driving_info .time_row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.main_location .time_title_2 {
+    color: #2468c9;
+    font-weight: 700;
+}
+
+.main_location .detail-text p {
+    margin: 0;
+    line-height: 1.6;
+}
 
 
 /* 지도 */
 
-.main_6 #map {
+.main_location #map {
     width: 100%;
-    height: 380px;
-
+    height: 330px;
+    border-radius: 12px;
+    margin: 32px 0 42px; 
     overflow: hidden;
-    border-radius: 0;
 }
 
-.main_6 .map img {
+
+/* ========================================
+   대중교통
+======================================== */
+
+.main_location .use_box {
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 20px;
+    background: #f5f8fc;
+}
+
+
+.main_location .use_box_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.main_location .use_box_title i {
+    color: #2468c9;
+    font-size: 22px;
+}
+
+.main_location .use_box_title h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+/* 3개 카드 */
+
+.main_location .use_box_list {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.2fr;
+    gap: 20px;
+}
+
+
+.main_location .use_box_list > .use_info {
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e4e8ee;
+    border-radius: 18px;
+}
+
+
+/* 교통 제목 */
+
+.main_location .use_box_list .use_info_title {
+    margin-bottom: 25px;
+}
+
+
+/* 내용 */
+
+.main_location .use_box_list .time_row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.main_location .use_box_list .time_title {
+    font-weight: 700;
+}
+
+.main_location .use_box_list .detail-text p {
+    font-size: 14px;
+}
+
+
+/* 버스 번호 */
+
+.main_location .bus_number {
+    padding-top: 5px;
+}
+
+.main_location .bus_number p {
+    font-size: 19px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+
+/* 안내문 */
+
+.main_location .notice {
+    display: block;
+    margin-top: 8px;
+    color: #2468c9;
+    font-size: 12px;
+}
+
+
+/* 지하철 */
+
+.main_location .subway_1 strong,
+.main_location .subway_2 strong {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: #f0602f;
+    color: #fff;
+    font-size: 12px;
+}
+
+.main_location .subway_2 strong {
+    background: #3aaa65;
+}
+
+/* partner */
+
+.partner {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.partner-swiper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.partner-swiper .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    width: max-content;
+
+    /* Swiper의 spaceBetween 대신 직접 간격 설정 */
+    gap: 50px;
+
+    animation: partnerSlide 25s linear infinite;
+}
+
+.partner-swiper .swiper-slide {
+    width: 200px !important;
+    height: 70px;
+
+    /* 중요 */
+    flex: 0 0 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-swiper .swiper-slide a {
+    display: flex;
     width: 100%;
     height: 100%;
 
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-swiper .swiper-slide img {
     display: block;
 
-    object-fit: cover;
+    width: auto;
+    height: auto;
+
+    max-width: 170px;
+    max-height: 50px;
+
+    object-fit: contain;
 }
 
 
-/* =========================
-   병원 이용 정보
-========================= */
-.main_6 .use_box {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    position: relative;
-    margin-top: 50px;
-    padding: 40px 30px;
+/* 7개 한 세트 = 7 × 200 + 7 × 50 = 1750px */
+@keyframes partnerSlide {
+    from {
+        transform: translateX(0);
+    }
 
-    color: var(--black);
-    text-decoration: none;
-
-    font-size: 14px;
-    background-color: var(--gray03);
-    border-radius: 20px;
-}
-
-.main_6 .use_box .use_box_left li+li {
-    margin-bottom: 50px;
-}
-
-.main_6 .use_box .use_info {
-    display: flex;
-    gap: 32px;
+    to {
+        transform: translateX(-1750px);
+    }
 }

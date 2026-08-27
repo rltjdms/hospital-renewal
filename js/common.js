@@ -413,16 +413,17 @@ function restartDoctorSlide() {
 // Main4
 
 const section = document.querySelector(".main_4");
-const text = section.querySelector(".main_4 .main_text_box");
-const items = section.querySelectorAll(".main_4 .treatment_item");
+const text = section.querySelector(".main_text_box");
+const items = section.querySelectorAll(".treatment_item");
 
 window.addEventListener("scroll", () => {
 
     const rect = section.getBoundingClientRect();
 
-    // main_4가 화면 상단에 도달한 후 스크롤 거리
+    // 섹션이 시작된 후 얼마나 스크롤했는지
     const scrollY = Math.max(0, -rect.top);
 
+    // 전체 애니메이션 구간
     const maxScroll = window.innerHeight * 3;
 
     const progress = Math.min(
@@ -431,75 +432,84 @@ window.addEventListener("scroll", () => {
     );
 
 
-    /* =====================
-       왼쪽 텍스트
-    ===================== */
+    /* =========================
+       1. 왼쪽 텍스트
+    ========================= */
 
-    if (progress > 0.05) {
-        text.classList.add("show");
-    } else {
-        text.classList.remove("show");
-    }
+    const textStart = 0.03;
+    const textEnd = 0.18;
+
+    const textProgress = Math.min(
+        Math.max(
+            (progress - textStart) / (textEnd - textStart),
+            0
+        ),
+        1
+    );
+
+    text.style.opacity = textProgress;
+    text.style.transform =
+        `translateY(${100 - (100 * textProgress)}px)`;
 
 
-    /* =====================
-       카드 애니메이션
-    ===================== */
+    /* =========================
+       2. 오른쪽 리스트
+       텍스트가 끝난 후 시작
+    ========================= */
+
+    const cardStart = 0.25;
+    const cardEnd = 0.85;
+
+    const cardProgress = Math.min(
+        Math.max(
+            (progress - cardStart) / (cardEnd - cardStart),
+            0
+        ),
+        1
+    );
+
 
     items.forEach((item, index) => {
 
-        // 카드별 시작 위치
-        const startY = [
-            700,
-            1000,
-            1300,
-            1600,
-            1900
-        ][index];
+        // 카드별 등장 딜레이
+        const delay = index * 0.13;
 
-
-        // 카드별 최종 위치
-        const endY = [
-            200,      // 1번
-            300,    // 2번 아래
-            200,      // 3번
-            300,    // 4번 아래
-            200       // 5번
-        ][index];
-
-
-        // 카드마다 등장 타이밍
-        const delay = index * 0.12;
-
-
-        // 각 카드 진행도
         const itemProgress = Math.min(
             Math.max(
-                (progress - delay) / 0.35,
+                (cardProgress - delay) / 0.3,
                 0
             ),
             1
         );
 
 
-        // 시작 위치 → 최종 위치
+        // 카드 시작 위치
+        const startY = index % 2 === 0
+            ? 700
+            : 800;
+
+
+        // 카드 최종 위치
+        const endY = index % 2 === 0
+            ? 200
+            : 300;
+
+
         const y =
             startY + (endY - startY) * itemProgress;
 
 
+        item.style.opacity = itemProgress;
+
         item.style.transform =
             `translateY(${y}px)`;
-
-        item.style.opacity =
-            itemProgress;
 
     });
 
 });
 
-
 // Main_5 Map
-  window.navermap_authFailure = function () {
+    window.navermap_authFailure = function () {
         console.log('네이버 지도 API 인증 실패');
     };
 
@@ -525,13 +535,3 @@ window.addEventListener("scroll", () => {
         }
     });
 
-
-    // const infoWindow = new naver.maps.InfoWindow({
-    //     content: `
-    //          <div class="map_info">
-    //             <img src="img/img_map_point.png" alt="대남병원">
-    //         </div>
-    //     `
-    // });
-
-    // infoWindow.open(map, marker);
