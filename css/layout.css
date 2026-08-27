@@ -424,7 +424,7 @@
 /* Main4 PROGRAM*/
 .main_4 {
     position: relative;
-    height: 300vh;
+    height: 350vh;
     background: #0e2f68;
 }
 
@@ -987,7 +987,9 @@
 .partner {
     width: 100%;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .partner-swiper {
