@@ -7,7 +7,7 @@ header {
     height: 100px;
     background: #fff;
     border-bottom: 1px solid #eee;
-    z-index: 1000;
+    z-index: 99;
 }
 
 header .logo_h {
@@ -160,4 +160,188 @@ header .gnb_bg {
 .head_inner.on .gnb_bg {
     height: 17em;
     box-shadow: rgba(149, 157, 165, 0.07) 0px 8px 15px;
+}
+
+#header .btn_open{ 
+	display: block;
+	width: 40px; 
+    height: 22px;
+	cursor: pointer;
+
+	position: relative;
+}
+
+#header .btn_open span{
+	position: absolute;
+	background-color: var(--black);
+	width: 100%;
+	height: 2px;
+	border-radius: 50px;
+}
+#header .btn_open span:nth-child(1){
+	top: 0;
+	left: 0;
+	transition: 0.3s;
+}
+#header .btn_open span:nth-child(2){
+	top: calc(50% + 1px);
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+	transition: 0.3s;
+}
+#header .btn_open span:nth-child(3){
+	top: 100%; 
+    right: 0;
+
+	transition: 0.3s;
+}
+
+
+#header .btn_open.active span:nth-child(1){
+	top: 5px; left: 2px;
+	width: 47%;
+	transform: rotate(27deg);
+}
+
+#header .btn_open.active span:nth-child(2){
+	transform: translate(-50%,-50%) rotate(-27deg);
+}
+
+#header .btn_open.active span:nth-child(3){
+	top: 15px;
+    right: 1px;
+    width: 47%;
+	transform: rotate(27deg);
+}
+
+/* 
+* 전체메뉴 */
+
+#full-menu {
+	width: 100%;
+	height: 100%;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 98;
+
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(240,244,250,1) 100%);
+    display: none;
+}
+
+#full-menu.active {
+    display: block;
+}
+
+#full-menu:after {
+	content: '';
+
+	width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+	z-index: -1;
+
+    box-sizing: border-box;
+	/* background: url(/img/daenam/full-bg1.png), url(/img/daenam/full-bg2.png), url(/img/daenam/full-bg3.png), url(/img/daenam/full-bg4.png);
+	background-repeat: no-repeat;
+	background-position: 5% 20%, 5% 90%, 95% 95%, -50% -50%; */
+    
+}
+
+#full-menu .depth01{
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+}
+#full-menu .depth01 > li{
+	width: 28.333%;
+	padding-left: 60px;
+	position: relative;
+	border-right: 1px solid var(--gray02);
+}
+#full-menu .depth01 > li:nth-child(1),
+#full-menu .depth01 > li:nth-child(4){
+	border-left: 1px solid var(--gray02);
+}
+
+#full-menu .depth01 > li:nth-child(1),
+#full-menu .depth01 > li:nth-child(2),
+#full-menu .depth01 > li:nth-child(3){
+	padding-top: 160px
+}
+
+
+#full-menu .depth01 > li > a{
+	font-size: 1.875rem;
+	font-weight: var(--fw-600);
+	padding: 10px 0;
+
+	position: relative;
+
+	transition: var(--transition);
+}
+#full-menu .depth01 > li > a:hover{
+	color: var(--blue01);
+}
+
+#full-menu .depth01 > li a::before{
+	content: '';
+
+	width: 0;
+	height: 2px;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	background: var(--blue01);
+	transition: 0.4s;
+}
+
+#full-menu .depth01 > li > a:hover::before{
+	width: 100%;
+}
+
+#full-menu .depth01 > li > a::after{
+	content: "+";
+
+	font-size: 1.75rem;
+	font-weight: var(--fw-400);
+	color: var(--blue01);
+
+	position: absolute;
+	top: -15px; right: -13px;
+	opacity: 0;
+
+	transition: var(--transition);
+}
+#full-menu .depth01 > li > a:hover::after{
+	opacity: 1;
+}
+
+
+#full-menu .depth02{
+	margin-top: 30px;
+}
+#full-menu .depth02 li{
+	margin-top: 7px;
+}
+#full-menu .depth02 li:first-child{
+	margin-top: 0;
+}
+#full-menu .depth02 li a{
+	font-size: 1.25rem;
+	color: var(--gray01);
+	padding: 7px 0;
+
+	transition: var(--transition);
+}
+#full-menu .depth02 li a:hover{
+	font-weight: var(--fw-600);
+	color: var(--black);
 }

@@ -27,6 +27,15 @@ menuItems.forEach((item) => {
 
 });
 
+const head_btn = document.querySelector('#header .btn_open');
+const head_sub_btn = document.querySelector('#full-menu');
+ 
+head_btn.addEventListener('click', function () {
+    this.classList.toggle('active');
+    head_sub_btn.classList.toggle('active');
+});
+
+
 // Main1 
 const slides = document.querySelector('.main_1 .slides');
 const slide = document.querySelectorAll('.main_1 .slides > div');

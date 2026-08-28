@@ -1,800 +1,128 @@
-@charset "utf-8";
+/* =======================================
 
-/* =========================================
-   공통 반응형
-========================================= */
 
-html {
-    overflow-x: hidden;
+								반응형 RESPONSIVE
+
+
+======================================= */
+
+@media all and (max-width: 1300px){
+	#header .wrapper{
+		padding: 0 30px;
+	}
+	#header nav .main_menu .menu_col > a{
+		padding: 0 20px;
+	}
+	#header nav .sub_menu{
+		gap: 45px;
+		padding-left: 15px;
+	}
+	
+	#full-menu:after{
+		background-position: 2% 13%, 2% 97%, 97% 97%, -50% -50%;
+	}
+	#full-menu .depth01 > li:nth-child(1),
+	#full-menu .depth01 > li:nth-child(4){
+		border-left: 0;
+	}
+	#full-menu .depth01 > li:nth-child(3),
+	#full-menu .depth01 > li:nth-child(6){
+		border-right: 0;
+	}
+	#full-menu .depth01 > li > a{
+		font-size: 1.5625rem;
+	}
+	#full-menu .depth02 {
+		margin-top: 20px;
+	}
+	#full-menu .depth02 li a{
+		font-size: 1.125rem;
+	}
+}
+@media all and (max-width: 1100px){
+	#header{
+		height: 70px;
+		top: 0;
+		/* left: 0;
+		transform: translateX(0); */
+	}
+	#header:before {
+		width: 100%;
+		/* left: 0;
+		transform: translateX(0); */
+		border-radius: 0;
+	}
+	#header .wrapper{
+		padding: 0;
+	}
+	#header .h_logo{
+		width: 138px;
+	}
+	#header nav{
+		display: none !important;
+	}
+
+	#full-menu .depth01 > li{
+		padding-left: 30px;
+	}
+	
+}
+@media all and (max-width: 640px){
+	#header{
+		background-color: var(--white);
+	}
+	#header .h_logo {
+		width: 118px;
+	}
+	#header .btn_open {
+		width: 32px;
+		height: 17px;
+	}
+	#header .btn_open.active span:nth-child(3){
+		top: 13px;
+	}
+
+/* 	#full-menu:after{
+		background-attachment: fixed;
+	} */
+/* 	#full-menu{
+		height: auto;		
+	} */
+/* 	#full-menu .wrapper{
+		overflow-y: scroll;
+	} */
+	#full-menu .depth01{
+		padding-top: 70px;
+		height: 60%;
+	}
+	#full-menu .depth01 > li{
+		width: 100%;
+		border-right: 0;
+		padding-left: 20px;
+	}
+	#full-menu .depth01 > li{
+		padding-top: 35px !important;
+	}
+/* 	#full-menu .depth01 > li:nth-child(1),
+	#full-menu .depth01 > li:nth-child(2),
+	#full-menu .depth01 > li:nth-child(3){
+		padding-top: 35px;
+	} */
+	#full-menu .depth01 > li > a{
+		padding: 5px 0;
+	}
+	#full-menu .depth02 {
+		margin-top: 15px;
+	}
+
 }
 
-body {
-    overflow-x: hidden;
-}
-
-#wrap {
-    width: 100%;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.wrap {
-    width: min(1300px, calc(100% - 40px));
-    margin: 0 auto;
-}
-
-.inner {
-    width: 100%;
-    max-width: 1580px;
-    margin: 0 auto;
-}
 
 
-/* =========================================
-   TABLET
-   1024px 이하
-========================================= */
-
-@media screen and (max-width: 1024px) {
-
-    /* -------------------------
-       공통
-    ------------------------- */
-
-    :root {
-        --hdH: 80px;
-    }
-
-    .wrap {
-        width: calc(100% - 60px);
-    }
-
-    .inner {
-        padding: 100px 30px;
-    }
 
 
-    /* =====================================
-       HEADER
-    ===================================== */
-
-    .head_inner {
-        height: 80px;
-    }
-
-    .head_inner .wrap {
-        width: calc(100% - 40px);
-    }
-
-    .head_inner nav {
-        display: none;
-    }
-
-    .gnb_bg {
+@media (max-width: 1100px) {
+    #header nav {
         display: none !important;
     }
-
-    .head_btn {
-        display: block;
-        margin-left: auto;
-    }
-
-    .menu_btn {
-        width: 40px;
-        height: 40px;
-
-        padding: 0;
-        border: 0;
-        background: transparent;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 6px;
-        cursor: pointer;
-    }
-
-    .menu_btn span {
-        display: block;
-
-        width: 26px;
-        height: 2px;
-
-        background: var(--black);
-
-        transition: 0.3s;
-    }
-
-
-    /* 모바일 메뉴 */
-
-    .head_inner.mobile_open nav {
-        display: block;
-
-        position: fixed;
-
-        top: 80px;
-        left: 0;
-
-        width: 100%;
-        height: calc(100vh - 80px);
-
-        padding: 20px 30px;
-
-        overflow-y: auto;
-
-        background: var(--white);
-    }
-
-    .head_inner.mobile_open .main_menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .head_inner.mobile_open .main_menu > li {
-        width: 100%;
-        border-bottom: 1px solid var(--gray02);
-    }
-
-    .head_inner.mobile_open .main_menu > li > a {
-        min-height: 60px;
-
-        display: flex;
-        align-items: center;
-
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .head_inner.mobile_open .sub_menu {
-        position: static;
-
-        display: none;
-
-        width: 100%;
-
-        padding: 10px 20px 20px;
-
-        background: var(--gray03);
-    }
-
-    .head_inner.mobile_open .sub_menu a {
-        display: block;
-
-        padding: 10px 0;
-
-        font-size: 15px;
-    }
-
-    .head_inner.mobile_open .mobile_active .sub_menu {
-        display: block;
-    }
-
-
-    /* 햄버거 X */
-
-    .head_inner.mobile_open .menu_btn span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .head_inner.mobile_open .menu_btn span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .head_inner.mobile_open .menu_btn span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-
-    /* =====================================
-       MAIN 1
-    ===================================== */
-
-    .main_1 {
-        min-height: 700px;
-    }
-
-    .main_1 .main_slidewrap {
-        height: 100%;
-    }
-
-    .main_1 .main_txt {
-        left: 50%;
-        width: 100%;
-
-        padding: 0 30px;
-
-        transform: translate(-50%, -50%);
-    }
-
-    .main_1 .main_txt h2 {
-        font-size: clamp(42px, 6vw, 72px);
-    }
-
-    .main_1 .main_txt p {
-        font-size: 18px;
-    }
-
-    .main_1 .slide_control {
-        left: 30px;
-        bottom: 40px;
-    }
-
-
-    /* =====================================
-       MAIN 2
-    ===================================== */
-
-    .main_2 .main_2_inner {
-        gap: 40px;
-    }
-
-    .main_2 .main_text_box {
-        width: 40%;
-    }
-
-    .main_2 .info_list {
-        width: 60%;
-    }
-
-
-    /* =====================================
-       MAIN 3
-    ===================================== */
-
-    .main_3 .doctor_wrap {
-        padding: 0 30px;
-    }
-
-    .doctor_card {
-        min-width: calc((100vw - 90px) / 2);
-    }
-
-    .doctor_slides {
-        overflow: hidden;
-    }
-
-    #doctorTrack {
-        gap: 20px;
-    }
-
-
-    /* =====================================
-       MAIN 4
-    ===================================== */
-
-    .main_4 {
-        height: auto !important;
-        min-height: auto !important;
-    }
-
-    .treatment_inner {
-        position: relative !important;
-
-        top: auto !important;
-
-        height: auto !important;
-
-        min-height: auto !important;
-
-        padding: 100px 30px !important;
-    }
-
-    .main_4 .wrap {
-        display: block;
-    }
-
-    .main_4 .main_text_box {
-        position: relative;
-
-        width: 100%;
-
-        margin-bottom: 60px;
-    }
-
-    .treatment_list {
-        width: 100%;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 30px;
-    }
-
-    .treatment_item {
-        position: relative !important;
-
-        width: 100% !important;
-
-        transform: none !important;
-    }
-
-
-    /* =====================================
-       MAIN 5 MAP
-    ===================================== */
-
-    .main_5 .map_wrap {
-        display: block;
-    }
-
-    .main_5 .map_box,
-    .main_5 .map_info {
-        width: 100%;
-    }
-
-    .main_5 .map_box {
-        height: 500px;
-    }
-
-    .main_5 .map_info {
-        margin-top: 30px;
-    }
-
-
-    /* =====================================
-       MAIN 6
-    ===================================== */
-
-    .main_6 .main_6_list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    /* =====================================
-       FOOTER
-    ===================================== */
-
-    .footer_inner {
-        width: calc(100% - 40px);
-    }
-
-    .footer_top {
-        flex-wrap: wrap;
-    }
-
-    .footer_logo {
-        width: 100%;
-
-        padding: 30px 0;
-    }
-
-    .footer_contact {
-        width: 100%;
-
-        padding: 30px 0;
-    }
-
-    .footer_quick {
-        width: 100%;
-
-        border-left: 0;
-        border-right: 0;
-
-        padding: 20px 0;
-    }
-
-    .footer_info {
-        flex-wrap: wrap;
-    }
-
-    .footer_menu {
-        width: 100%;
-
-        flex-wrap: wrap;
-
-        padding: 30px 0;
-    }
-
-    .footer_bottom {
-        flex-wrap: wrap;
-
-        gap: 20px;
-
-        padding: 30px 0;
-    }
-
-    .footer_company {
-        width: 100%;
-
-        margin: 0;
-    }
-
-    .copyright {
-        width: 100%;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   767px 이하
-========================================= */
-
-@media screen and (max-width: 767px) {
-
-    /* -------------------------
-       공통
-    ------------------------- */
-
-    .wrap {
-        width: calc(100% - 40px);
-    }
-
-    .inner {
-        padding: 70px 20px;
-    }
-
-
-    /* =====================================
-       HEADER
-    ===================================== */
-
-    .head_inner {
-        height: 70px;
-    }
-
-    .head_inner .wrap {
-        width: calc(100% - 40px);
-    }
-
-    .logo img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    .head_inner.mobile_open nav {
-        top: 70px;
-        height: calc(100vh - 70px);
-
-        padding: 10px 20px;
-    }
-
-    .head_inner.mobile_open .main_menu > li > a {
-        min-height: 55px;
-
-        font-size: 17px;
-    }
-
-
-    /* =====================================
-       MAIN 1
-    ===================================== */
-
-    .main_1 {
-        min-height: 650px;
-    }
-
-    .main_1 .slides > div {
-        min-height: 650px;
-    }
-
-    .main_1 .main_txt {
-        padding: 0 20px;
-    }
-
-    .main_1 .main_txt h2 {
-        font-size: clamp(34px, 10vw, 52px);
-        line-height: 1.2;
-    }
-
-    .main_1 .main_txt p {
-        margin-top: 20px;
-
-        font-size: 15px;
-    }
-
-    .main_1 .slide_control {
-        left: 20px;
-        bottom: 30px;
-
-        transform: scale(0.9);
-        transform-origin: left bottom;
-    }
-
-
-    /* =====================================
-       MAIN 2
-    ===================================== */
-
-    .main_2 .main_2_inner {
-        display: block;
-    }
-
-    .main_2 .main_text_box,
-    .main_2 .info_list {
-        width: 100%;
-    }
-
-    .main_2 .main_text_box {
-        margin-bottom: 40px;
-    }
-
-    .main_2 .info_list {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* =====================================
-       MAIN 3
-    ===================================== */
-
-    .main_3 .main_text_box {
-        margin-bottom: 40px;
-    }
-
-    .main_3 .doctor_wrap {
-        padding: 0;
-    }
-
-    .doctor_card {
-        min-width: calc(100vw - 40px);
-    }
-
-    #doctorTrack {
-        gap: 20px;
-    }
-
-    .doctor_slides {
-        overflow: hidden;
-    }
-
-    .doctor_img img {
-        width: 100%;
-        height: auto;
-    }
-
-
-    /* =====================================
-       MAIN 4
-    ===================================== */
-
-    .main_4 {
-        height: auto !important;
-    }
-
-    .treatment_inner {
-        position: relative !important;
-
-        padding: 70px 20px !important;
-
-        overflow: visible !important;
-    }
-
-    .main_4 .main_text_box {
-        margin-bottom: 40px;
-    }
-
-    .treatment_list {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-    }
-
-    .treatment_item {
-        opacity: 1 !important;
-
-        transform: translateY(0) !important;
-    }
-
-
-    /*
-       모바일에서는
-       PC 스크롤 애니메이션 제거
-    */
-
-    .main_4 .main_text_box {
-        opacity: 1 !important;
-
-        transform: translateY(0) !important;
-    }
-
-
-    /* =====================================
-       MAIN 5
-    ===================================== */
-
-    .main_5 .map_box {
-        height: 400px;
-    }
-
-    .main_5 .map_info {
-        padding: 25px 20px;
-    }
-
-
-    /* =====================================
-       MAIN 6
-    ===================================== */
-
-    .main_6 .main_6_list {
-        grid-template-columns: 1fr;
-
-        gap: 20px;
-    }
-
-
-    /* =====================================
-       FOOTER
-    ===================================== */
-
-    .footer_inner {
-        width: calc(100% - 40px);
-    }
-
-    .footer_logo {
-        padding: 30px 0 20px;
-    }
-
-    .footer_logo > strong {
-        font-size: 24px;
-    }
-
-    .footer_contact_box {
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-    .hospital_info {
-        width: 100%;
-
-        padding: 0 !important;
-    }
-
-    .hospital_info + .hospital_info {
-        padding-top: 20px !important;
-
-        border-left: 0;
-        border-top: 1px solid #ddd;
-    }
-
-    .hospital_text .address {
-        white-space: normal;
-    }
-
-    .footer_quick {
-        flex-direction: column;
-
-        gap: 10px;
-    }
-
-    .footer_quick a {
-        width: 100%;
-    }
-
-    .footer_menu {
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 30px;
-    }
-
-    .footer_bottom {
-        display: block;
-    }
-
-    .footer_affiliate {
-        margin-bottom: 20px;
-
-        flex-wrap: wrap;
-    }
-
-    .footer_company {
-        margin-bottom: 15px;
-    }
-
-    .footer_company p,
-    .copyright {
-        white-space: normal;
-        line-height: 1.7;
-    }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-   480px 이하
-========================================= */
-
-@media screen and (max-width: 480px) {
-
-    /* -------------------------
-       공통
-    ------------------------- */
-
-    .wrap {
-        width: calc(100% - 32px);
-    }
-
-    .head_inner .wrap {
-        width: calc(100% - 32px);
-    }
-
-
-    /* =====================================
-       HEADER
-    ===================================== */
-
-    .logo img {
-        max-width: 130px;
-    }
-
-
-    /* =====================================
-       MAIN 1
-    ===================================== */
-
-    .main_1,
-    .main_1 .slides > div {
-        min-height: 580px;
-    }
-
-    .main_1 .main_txt h2 {
-        font-size: 34px;
-    }
-
-    .main_1 .main_txt p {
-        font-size: 14px;
-    }
-
-
-    /* =====================================
-       MAIN 2
-    ===================================== */
-
-    .main_2 .info_item {
-        padding: 25px 20px;
-    }
-
-
-    /* =====================================
-       MAIN 3
-    ===================================== */
-
-    .doctor_card {
-        min-width: calc(100vw - 32px);
-    }
-
-    .doctor_txt {
-        padding: 20px;
-    }
-
-
-    /* =====================================
-       MAIN 4
-    ===================================== */
-
-    .treatment_item {
-        min-height: auto;
-    }
-
-
-    /* =====================================
-       MAIN 5
-    ===================================== */
-
-    .main_5 .map_box {
-        height: 320px;
-    }
-
-
-    /* =====================================
-       FOOTER
-    ===================================== */
-
-    .footer_inner {
-        width: calc(100% - 32px);
-    }
-
-    .footer_menu {
-        grid-template-columns: 1fr;
-    }
-
 }

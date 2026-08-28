@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=ehd2q8j7ri"></script>
     <title>Document</title>
@@ -17,7 +18,7 @@
         <a rel="bookmark" href="#container">본문바로가기</a>
     </div>
      <div id="wrap">
-        <header class="head_inner">
+        <header class="head_inner" id="header">
            <div class="nav_list wrap">
              <h1 class="logo_h">
                 <a href="#" class="logo">
@@ -71,12 +72,96 @@
                     </li>
                 </ul>
             </nav>
-            <div class="head_btn">
-                <span>햄버거</span>
-            </button>
+            <div class="btn_open">		
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
            </div>
            <div class="gnb_bg"></div>
         </header>
+        <div id="full-menu">
+            <div class="wrapper">
+
+                <!-- depth01 -->
+                <ul class="depth01">
+                    <li>
+                        <a href="#none">HOME</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/dae_index.php">HOME</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#none">병원소개</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/about/greating.php">이사장 인사말</a></li>
+                            <li><a href="/about/history.php">연혁</a></li>
+                            <li><a href="/about/interior.php">병원둘러보기</a></li>
+                            <li><a href="/about/location.php">오시는길&amp;전화번호안내</a></li>
+                        </ul>
+                        <!--  //depth02-->
+                    </li>
+                    <!-- //depth01 -->
+
+                    <!-- depth01 -->
+                    <li>
+                        <a href="#none">진료안내</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/info/doctor.php">의료진소개</a></li>
+                            <li><a href="/info/medical_info.php">외래진료안내</a></li>
+                            <li><a href="/info/discharge_01.php">입퇴원안내</a></li>
+                            <li><a href="/info/treatment.php">치료 프로그램</a></li>
+                        </ul>
+                        <!--  //depth02-->
+                    </li>
+                    <!-- //depth01 -->
+
+                    <!-- depth01 -->
+                    <li>
+                        <a href="#none">이용안내</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/use/admitssion.php">입원생활 안내</a></li>
+                            <li><a href="/use/certificate.php">제증명 발급안내</a></li>
+                            <li><a href="/bbs/board.php?bo_table=nonsalary">비급여목록표</a></li>			
+                        </ul>
+                        <!--  //depth02-->
+                    </li>
+                    <!-- //depth01 -->
+
+                    <!-- depth01 -->
+                    <li>
+                        <a href="#none">정신건강정보</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/disease/disease_01.php">조현병</a></li>
+                            <li><a href="/disease/disease_02.php">기분장애</a></li>
+                            <li><a href="/disease/disease_03.php">알코올 사용장애</a></li>
+                            <li><a href="/disease/disease_04.php">불안장애</a></li>
+                        </ul>
+                        <!--  //depth02-->
+                    </li>
+                    <!-- //depth01 -->
+
+                    <!-- depth01 -->
+                    <li>
+                        <a href="#none">커뮤니티</a>
+                        <!-- depth02 -->
+                        <ul class="depth02">
+                            <li><a href="/bbs/board.php?bo_table=notice">공지사항</a></li>
+                            <li><a href="/bbs/board.php?bo_table=news">병원소식</a></li>
+                            <li><a href="/community/faq.php">자주묻는질문</a></li>
+                        </ul>
+                        <!--  //depth02-->
+                    </li>
+                    <!-- //depth01 -->
+                </ul>
+            </div>
+        </div>
         <main id="content">
             <section class="main_1">
                 <div class="wrap">

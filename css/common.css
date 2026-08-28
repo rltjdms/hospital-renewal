@@ -61,6 +61,24 @@
     --tit5: 1.5rem; /* 24px */
 }
 
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#wrap {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+}
 
 html {
     font-size: 100%; /* 1rem = 16px */
@@ -85,16 +103,14 @@ html {
 	*{ font-size: 14px; }
 }
 
-#wrap {
-	min-width: 640px;
-}
-
-#wrap, #content {
-	width: 100%;
+#wrap,
+#content {
+    width: 100%;
+    min-width: 0;
 }
 
 .wrap {
-    width: 1300px;
+    width: min(1300px, calc(100% - 40px));
     height: 100%;
     margin: 0 auto;
 }
