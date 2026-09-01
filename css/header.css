@@ -215,10 +215,9 @@ header .gnb_bg {
 	transform: rotate(27deg);
 }
 
-/* 
-* 전체메뉴 */
-
-#full-menu {
+/* 전체메뉴 */
+#full-menu{
+    display: none;
 	width: 100%;
 	height: 100%;
 	
@@ -228,14 +227,19 @@ header .gnb_bg {
 	z-index: 98;
 
 	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(240,244,250,1) 100%);
-    display: none;
+}
+
+.wrapper {
+    width: 1300px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 #full-menu.active {
     display: block;
 }
 
-#full-menu:after {
+#full-menu:after{
 	content: '';
 
 	width: 100%;
@@ -247,26 +251,27 @@ header .gnb_bg {
 	z-index: -1;
 
     box-sizing: border-box;
-	/* background: url(/img/daenam/full-bg1.png), url(/img/daenam/full-bg2.png), url(/img/daenam/full-bg3.png), url(/img/daenam/full-bg4.png);
+	background: url(/img/daenam/full-bg1.png), url(/img/daenam/full-bg2.png), url(/img/daenam/full-bg3.png), url(/img/daenam/full-bg4.png);
 	background-repeat: no-repeat;
-	background-position: 5% 20%, 5% 90%, 95% 95%, -50% -50%; */
-    
+	background-position: 5% 20%, 5% 90%, 95% 95%, -50% -50%;
 }
 
 #full-menu .depth01{
 	display: flex;
 	flex-wrap: wrap;
 	height: 100%;
+    box-sizing: border-box;
 }
 #full-menu .depth01 > li{
-	width: 28.333%;
+	width: 33.333%;
 	padding-left: 60px;
+    box-sizing: border-box;
 	position: relative;
-	border-right: 1px solid var(--gray02);
+	border-right: 1px solid var(--gray04);
 }
 #full-menu .depth01 > li:nth-child(1),
 #full-menu .depth01 > li:nth-child(4){
-	border-left: 1px solid var(--gray02);
+	border-left: 1px solid var(--gray04);
 }
 
 #full-menu .depth01 > li:nth-child(1),

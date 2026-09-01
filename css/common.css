@@ -30,6 +30,7 @@
     --gray01: #666666;
     --gray02: #e8e8e8;
 	--gray03 : #f5f5f5;
+	--gray04: #999999;
     --blue: #0A2961 ;
     --blue01: #244d8e;
     --blue02: #dae3f3;
@@ -61,24 +62,6 @@
     --tit5: 1.5rem; /* 24px */
 }
 
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-#wrap {
-    width: 100%;
-    min-width: 0;
-    overflow-x: hidden;
-}
-
-.wrapper {
-    width: 1300px;
-    height: 100%;
-    margin: 0 auto;
-}
 
 html {
     font-size: 100%; /* 1rem = 16px */
@@ -103,20 +86,18 @@ html {
 	*{ font-size: 14px; }
 }
 
-#wrap,
-#content {
-    width: 100%;
-    min-width: 0;
+#wrap {
+	min-width: 640px;
+}
+
+#wrap, #content {
+	width: 100%;
 }
 
 .wrap {
-    width: min(1300px, calc(100% - 40px));
+    width: 1300px;
     height: 100%;
     margin: 0 auto;
-}
-
-@media screen and (max-width: 1300px){
-	.wrapper{ width: 90%; }
 }
 
 .inner {

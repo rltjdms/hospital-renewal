@@ -6,6 +6,13 @@
     width: 100%;
 }
 
+.footer_banner > a {
+    display: block;
+    height: 216px;
+    background: url(../img/f_banner_bg.png) no-repeat center / cover;
+    text-indent: -9999em;
+}
+
 .footer_inner {
     max-width: 1480px;
     margin: 0 auto;

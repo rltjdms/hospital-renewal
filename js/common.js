@@ -419,6 +419,7 @@ function restartDoctorSlide() {
 
 
 
+
 // Main4
 
 const section = document.querySelector(".main_4");
@@ -516,6 +517,7 @@ window.addEventListener("scroll", () => {
     });
 
 });
+
 
 // Main_5 Map
     window.navermap_authFailure = function () {
